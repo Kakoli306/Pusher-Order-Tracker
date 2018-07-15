@@ -22,7 +22,7 @@ Route::get('/fire', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 // User Routes
 Route::middleware('auth')->group(function () {
@@ -38,3 +38,5 @@ Route::prefix('admin')->group(function () {
     Route::get('/orders/edit/{order}', 'AdminOrdersController@edit')->name('admin.orders.edit');
     Route::patch('/orders/{order}', 'AdminOrdersController@update')->name('admin.orders.update');
 });
+
+Route::redirect('/admin', '/admin/orders');

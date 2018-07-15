@@ -19,8 +19,10 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "date-fns": "^1.29.0",
         "laravel-echo": "^1.4.0",
         "pusher-js": "^4.2.2",
-        "vue-strap": "^1.1.40"
+        "vue-strap": "^1.1.40",
+        "vue-timeago": "^4.0.2"
     }
 }

@@ -1,14 +1,15 @@
 <template>
     <div>
         <div class="progress">
-          <progressbar :now="progress" type="success" striped animated></progressbar>
+            <progressbar now label type="success" striped animated></progressbar>
+          <!-- <progressbar now="progress" type="success" striped animated></progressbar> -->
         </div>
 
         <div class="order-status">
             <strong>Order Status:</strong> {{ statusNew }}
         </div>
 
-        <img src="/img/delivery.gif" alt="delivery" v-if="progress >= 100">
+        <img src="{{asset('public/img/delivery.gif') }}"  alt="delivery" v-if="progress>= 100">
     </div>
 </template>
 

@@ -32,8 +32,20 @@ class OrderStatusChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-         return new Channel('pizza-tracker.'.$this->order->id);
-        
+        // return new PrivateChannel('pizza-tracker.'.$this->order->id);
+        return ['private-pizza-tracker.'.$this->order->id, 'pizza-tracker'];
     }
-    
+    /**
+     * Get the data to broadcast.
+     *
+     * @return array
+     */
+    public function broadcastWith()
+    {
+        $extra = [
+            'status_name' => $this->order->status->name,
+            'status_percent' => $this->order->status->percent,
+        ];
+        return array_merge($this->order->toArray(), $extra);
+    }
 }
